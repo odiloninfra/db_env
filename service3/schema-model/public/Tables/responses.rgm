@@ -1,0 +1,39 @@
+table "public"."responses" {
+  primaryKey = {
+    columns = [
+      "response_id"
+    ]
+    name = "responses_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "response_id" {
+      type = integer
+      null = NOT NULL
+    }
+    column "user_id" {
+      type = integer
+    }
+    column "poll_id" {
+      type = integer
+    }
+    column "response" {
+      type = character varying(100)
+    }
+    column "response_date" {
+      type = timestamp without time zone
+      default = CURRENT_TIMESTAMP
+    }
+  )
+}
+
+foreignKey "public"."responses"."responses_poll_id_fkey" {
+  columns = [
+    "poll_id"
+  ]
+  referencedTable = "public"."polls"
+  referencedColumns = [
+    "poll_id"
+  ]
+}
+

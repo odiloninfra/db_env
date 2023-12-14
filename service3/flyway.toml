@@ -1,0 +1,20 @@
+databaseType = "PostgreSql"
+name = "service3"
+id = "40450958-310a-406f-be95-84937bed35cb"
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+schemaModel = "./schema-model"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgres.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[flyway]
+mixed = true
+outOfOrder = true
+locations = [ "filesystem:migrations" ]
+validateMigrationNaming = true

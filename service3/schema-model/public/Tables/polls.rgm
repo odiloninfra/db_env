@@ -1,0 +1,24 @@
+table "public"."polls" {
+  primaryKey = {
+    columns = [
+      "poll_id"
+    ]
+    name = "polls_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "poll_id" {
+      type = integer
+      null = NOT NULL
+    }
+    column "question" {
+      type = character varying(255)
+      null = NOT NULL
+    }
+    column "is_active" {
+      type = boolean
+      default = true
+    }
+  )
+}
+
