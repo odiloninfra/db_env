@@ -1,0 +1,28 @@
+table "public"."users" {
+  primaryKey = {
+    columns = [
+      "user_id"
+    ]
+    name = "users_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "user_id" {
+      type = integer
+      null = NOT NULL
+    }
+    column "username" {
+      type = character varying(50)
+      null = NOT NULL
+    }
+    column "email" {
+      type = character varying(100)
+      null = NOT NULL
+    }
+    column "created_at" {
+      type = timestamp without time zone
+      default = CURRENT_TIMESTAMP
+    }
+  )
+}
+
